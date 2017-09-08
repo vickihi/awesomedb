@@ -6,9 +6,9 @@ public class Column  implements java.io.Serializable{
     private String name = null;
     private String type = null;
 
-    // No-arg constructor (takes no arguments)
-    public Column(){
-
+    public Column(String name, String type){
+        this.name = name;
+        this.type = type;
     }
 
     public String getName() {
