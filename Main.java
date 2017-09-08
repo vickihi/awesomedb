@@ -76,7 +76,9 @@ public class Main {
         table.add(entry4);
         table.add(entry5);
 
-        System.out.println(table.getSize());
-        System.out.println(table.get(1).get(B));
+        table.remove(2);
+
+        System.out.println(table.size());
+        System.out.println(table.get(2).get(B));
     }
 }

@@ -31,8 +31,23 @@ public class Table<E> implements java.io.Serializable {
         return (E) elements[i];
     }
 
-    public int getSize() {
+    public int size() {
         return this.size;
+    }
+
+    public void remove(int i) {
+        if (i >= size || i < 0) {
+            throw new IndexOutOfBoundsException("Index: " + i + ", Size " + i );
+        }
+        Object temp[] = new Object[--size];
+        for(int j = 0; j < size; j++) {
+            if (j < i) {
+                temp[j] = elements[j];
+            } else {
+                temp[j] = elements[j + 1];
+            }
+        }
+        elements = temp;
     }
 
 }
