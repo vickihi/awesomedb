@@ -29,7 +29,9 @@ public class Main {
         F.setType("DateTime");
 
 
-        Row<Column, String> entry1 = new Row<Column, String>();        entry1.put(A, "1");
+        Row<Column, String> entry1 = new Row<Column, String>();
+
+        entry1.put(A, "1");
         entry1.put(B, "John");
         entry1.put(C, "Male");
         entry1.put(D, "20");
@@ -78,7 +80,13 @@ public class Main {
 
         table.remove(2);
 
+        table.add();
+
         System.out.println(table.size());
-        System.out.println(table.get(2).get(B));
+        for (int i = 0; i < table.size(); i++) {
+            System.out.println(table.get(i).get(B));
+        }
+
+        //System.out.println(table.get(2).get(B));
     }
 }

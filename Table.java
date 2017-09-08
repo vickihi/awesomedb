@@ -10,6 +10,8 @@ public class Table<E> implements java.io.Serializable {
 
     public Table() {
         elements = new Object[DEFAULT_CAPACITY];
+        Row<Column, String> entry = new Row<>();
+        elements[size++] = entry;
     }
 
     public void add(E e) {
@@ -17,6 +19,14 @@ public class Table<E> implements java.io.Serializable {
             ensureCapacity();
         }
         elements[size++] = e;
+    }
+
+    public void add() {
+        if (size == elements.length) {
+            ensureCapacity();
+        }
+        Row<Column, String> entry = new Row<>();
+        elements[size++] = entry;
     }
 
     private void ensureCapacity() {
