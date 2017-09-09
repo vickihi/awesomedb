@@ -2,7 +2,7 @@ package com.awesomedb;
 
 import java.util.*;
 
-public class Row<K, V> implements java.io.Serializable{
+public class Row<K, V> implements RowInterface<K,V>, java.io.Serializable{
     private int size;
     private int DEFAULT_CAPACITY = 16;
 
