@@ -1,6 +1,6 @@
 package com.awesomedb;
 
-public class Column  implements java.io.Serializable{
+public class Column implements java.io.Serializable{
 
     //Properties
     private String name = null;

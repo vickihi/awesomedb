@@ -3,15 +3,13 @@ package com.awesomedb;
 import java.util.Arrays;
 
 
-public class Table<E> implements java.io.Serializable {
+public class Table<E> implements TableInterface, java.io.Serializable {
     private int size = 0;
     private static final int DEFAULT_CAPACITY = 10;
     private Object elements[];
 
     public Table() {
         elements = new Object[DEFAULT_CAPACITY];
-        Row<Column, String> entry = new Row<>();
-        elements[size++] = entry;
     }
 
     public void add(E e) {
@@ -42,7 +40,7 @@ public class Table<E> implements java.io.Serializable {
     }
 
     public int size() {
-        return this.size;
+        return size;
     }
 
     public void remove(int i) {
@@ -56,6 +54,14 @@ public class Table<E> implements java.io.Serializable {
             } else {
                 temp[j] = elements[j + 1];
             }
+        }
+        elements = temp;
+    }
+
+    public void remove(){
+        Object temp[] = new Object[--size];
+        for (int i = 0; i <size; i++) {
+            temp[i] = elements[i];
         }
         elements = temp;
     }
