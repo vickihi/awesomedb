@@ -1,7 +1,5 @@
 package com.awesomedb;
 
-import com.sun.tools.javah.Gen;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -14,6 +12,8 @@ public class Main {
 
         Row<Column, String> entry1 = new Row<>();
 
+        System.out.println("first row size(start): " + entry1.size());
+
         entry1.insert(Id, "1");
         entry1.insert(Name, "John");
         entry1.insert(Gender, "Male");
@@ -21,12 +21,16 @@ public class Main {
         entry1.insert(Description, "Newbie");
         entry1.insert(DateCreated, "2017-10-10");
 
+        System.out.println("first row size(after): " + entry1.size());
+
         Row<Column, String> entry2 = new Row<>();
         entry2.insert(Id, "2");
         entry2.insert(Name, "Micheal");
         entry2.insert(Gender, "Male");
         entry2.insert(Age, "22");
         entry2.insert(Description, "Box");
+
+        entry2.update(Description, "Box_edit");
         entry2.insert(DateCreated, "2017-11-10");
 
         Row<Column, String> entry3 = new Row<>();
@@ -83,6 +87,6 @@ public class Main {
             System.out.println();
         }
 
-        //System.out.println(table.get(2).get(Name));
+        System.out.println(table.get(2).select(Name));
     }
 }

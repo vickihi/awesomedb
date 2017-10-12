@@ -19,18 +19,31 @@ public class Row<K, V> implements RowInterface<K,V>, java.io.Serializable{
         return null;
     }
 
-    public void insert(K key, V value) {
+    public boolean insert(K key, V value) {
         boolean insert = true;
         for (int i = 0; i < size; i++) {
             if (values[i].getKey().equals(key)) {
-                values[i].setValue(value);
                 insert = false;
+                break;
             }
         }
         if (insert) {
             ensureCapa();
-            values[size++] = new Entry<K, V>(key, value);
+            values[size++] = new Entry<>(key, value);
         }
+        return insert;
+    }
+
+    public boolean update(K key, V value) {
+        boolean update = false;
+        for (int i = 0; i < size; i++) {
+            if (values[i].getKey().equals(key)) {
+                values[i].setValue(value);
+                update = true;
+                break;
+            }
+        }
+        return update;
     }
 
     private void ensureCapa() {
